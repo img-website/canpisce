@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services services - Canpisce Consulting</title>
+    
+    <style>
+        /* --- Global Styles --- */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fc;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Color Variables --- */
+        :root {
+            --primary-blue: #0a3565;
+            --accent-red: #D0202F;  
+            --connect-blue: #0092CE;
+            --text-white: #ffffff;
+            --text-light: #f0f0f0;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --icon-blue: #007bff;
+            --icon-blue-bg: #e6f2ff;
+            --icon-red-bg: #fceded;
+            --border-color: #eeeeee;
+        }
+
+        /* --- 1. The Navigation Bar --- */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: var(--text-white);
+            padding: 15px 5%;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .logo {
+            flex-basis: 33.33%;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-dark);
+        }
+
+        .logo-icon-main {
+            height: 45px;
+            width: auto;
+        }
+        
+        .logo-text-primary {
+            height: 30px;
+            width: auto;
+        }
+
+        .logo-text-secondary {
+            height: 30px;
+            width: auto;
+        }
+        
+        .nav-links {
+            flex-basis: 66.66%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-links ul {  
+            display: flex;  
+        }
+
+        .nav-links li {  
+            margin-left: 5px;  
+        }
+        
+        .nav-links a {  
+            color: var(--text-dark);
+            font-size: 1rem;  
+            font-weight: 500;  
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 6px;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {  
+            color: var(--connect-blue);
+            background-color: var(--icon-blue-bg);
+        }
+        
+        /* --- Dropdown Menu Styles --- */
+        .nav-links-dropdown {
+            position: relative;
+        }
+        
+        .nav-links-dropdown a span {
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--text-white);
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            z-index: 1001;
+            border: 1px solid var(--border-color);
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .nav-links-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content li {
+            margin: 0;
+        }
+
+        .dropdown-content a {
+            color: var(--text-dark);
+            padding: 12px 16px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 0;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--icon-blue-bg);
+            color: var(--connect-blue);
+        }
+
+        /* --- 2. MAIN PAGE HERO --- */
+        .page-hero {
+            background-color: var(--primary-blue);
+            color: var(--text-white);
+            padding: 60px 5%;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .page-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 10px 0 0 0;
+            font-weight: 300;
+        }
+        
+        /* --- 2C. SERVICES CONTENT SECTION --- */
+        .services-content-section {
+            padding: 60px 5% 80px 5%;
+            background-color: var(--text-white);
+        }
+        .services-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .service-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .service-block:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        .service-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--icon-blue-bg);
+            color: var(--icon-blue);
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        /* Alternate icon colors for visual interest */
+        .service-block:nth-child(odd) .service-icon {
+            background-color: var(--icon-red-bg);
+            color: var(--accent-red);
+        }
+        .service-text h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        .service-text p {
+            margin: 0;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+
+        /* --- 3. "CONNECT" SECTION (FOOTER 2) --- */
+        .connect-section {
+            background-color: var(--connect-blue);
+            color: var(--text-white);
+            padding: 50px 5%;
+        }
+        .connect-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .connect-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;  
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .connect-main h2 {
+            font-size: 2.2rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        .connect-button {
+            background-color: transparent;
+            border: 2px solid var(--text-white);
+            color: var(--text-white);
+            padding: 12px 24px;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .connect-button:hover {
+            background-color: var(--text-white);
+            color: var(--connect-blue);
+        }
+        .connect-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .connect-socials a {
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+        .connect-socials a:hover {
+            opacity: 1;
+        }
+        .connect-socials svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* --- 4. FOOTER SECTION --- */
+        .site-footer {
+            background-color: #ffffff;
+            color: var(--text-muted);
+            padding: 80px 5% 20px 5%;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-grid {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .footer-left {
+            flex-basis: 33.33%;
+        }
+        .footer-right {
+            flex-basis: 66.66%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-right .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+        .footer-logo-img {
+            height: 45px;
+            margin-bottom: 15px;
+        }
+        .footer-col p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--accent-red);
+        }
+        .footer-subscribe {
+            display: flex;
+            height: 44px;
+        }
+        .footer-subscribe input {
+            flex-grow: 1;
+            border: 1px solid var(--border-color);
+            padding: 0 15px;
+            font-size: 1rem;
+            border-radius: 4px 0 0 4px;
+        }
+        .footer-subscribe button {
+            border: none;
+            background-color: var(--accent-red);
+            color: var(--text-white);
+            padding: 0 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            transition: background-color 0.3s ease;
+        }
+        .footer-subscribe button:hover {
+            background-color: #ab1b27;
+        }
+        .footer-col h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .footer-links a:hover {
+            color: var(--accent-red);
+        }
+        .footer-links a::before {
+            content: '+';
+            margin-right: 10px;
+            color: var(--accent-red);
+        }
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+        .contact-list a {
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+        .contact-list a:hover {
+            color: var(--accent-red);
+        }
+        .contact-list svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--accent-red);
+            margin-right: 12px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        .footer-bottom-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        /* --- 5. POP-UP MODAL STYLES --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            display: none;  
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: var(--text-white);
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;  
+            overflow-y: auto;
+            padding: 30px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .modal-close-button:hover {
+            color: var(--text-dark);
+        }
+        .message-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .message-form-container h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin: 0 0 10px 0;
+        }
+        .message-form-container p {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin: 0 0 40px 0;
+        }
+        .form-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;  
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+        .checkbox-item input {
+            width: auto;
+        }
+        
+        .hidden-field {
+            display: none;
+        }
+
+        .submit-button {
+            width: 100%;
+            background-color: var(--accent-red);
+            color: var(--text-white);
+            border: none;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #ab1b27;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo-icon.png" alt="Canpisce Icon" class="logo-icon-main">
+                <img src="logo-name.png" alt="CANPISCE" class="logo-text-primary">
+                <img src="logo-tagline.png" alt="Consulting" class="logo-text-secondary">
+            </a>
+        </div>
+
+        <nav class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="consultants.html">Meet our Consultants</a></li> 
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li class="nav-links-dropdown">
+                    <a href="services.html" class="active">Services <span>▾</span></a>
+                    <ul class="dropdown-content">
+                        <li><a href="services.html#lean-management">Lean Management</a></li>
+                        <li><a href="services.html#theory-of-constraints">Theory of Constraints</a></li>
+                        <li><a href="services.html#erp-implementation">ERP Implementation</a></li>
+                        <li><a href="services.html#digital-transformation">Digital Transformation</a></li>
+                        <li><a href="services.html#strategic-procurement">Strategic Procurement</a></li>
+                        <li><a href="services.html#esg">ESG</a></li>
+                        <li><a href="services.html#quality-improvement">Quality Improvement</a></li>
+                    </ul>
+                </li>
+                <li><a href="skill-training.html">Skill Training</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Our Services services</h1>
+                <p>Comprehensive solutions to drive operational excellence and sustainable growth.</p>
+            </div>
+        </section>
+        
+        <section class="services-content-section">
+            <div class="services-container">
+
+                <div class="service-block" id="lean-management">
+                    <div class="service-icon">📈</div>
+                    <div class="service-text">
+                        <h2>Lean Management</h2>
+                        <p>Streamline processes, eliminate waste, and maximize customer value. Our Lean methodologies focus on creating efficient, agile, and customer-centric operations that reduce costs, improve quality, and shorten lead times.</p>
+                    </div>
+                </div>
+
+                <div class="service-block" id="theory-of-constraints">
+                    <div class="service-icon">🔗</div>
+                    <div class="service-text">
+                        <h2>Theory of Constraints (TOC)</h2>
+                        <p>Identify and manage your system's single biggest constraint to unlock significant improvements in throughput and performance. We help you focus your efforts where they matter most, turning bottlenecks into gateways for growth.</p>
+                    </div>
+                </div>
+
+                <div class="service-block" id="erp-implementation">
+                    <div class="service-icon">💻</div>
+                    <div class="service-text">
+                        <h2>ERP Implementation</h2>
+                        <p>Successfully integrate all facets of your operation—from planning and finance to manufacturing and supply chain—with a robust ERP system. We guide you through selection, implementation, and optimization to ensure the technology serves your business strategy.</p>
+                    </div>
+                </div>
+
+                <div class="service-block" id="digital-transformation">
+                    <div class="service-icon">💡</div>
+                    <div class="service-text">
+                        <h2>Digital Transformation</h2>
+                        <p>Leverage cutting-edge technology, from IoT to AI and data analytics, to fundamentally change how you operate and deliver value. We help you build a digital-first culture, optimize processes, and create new, innovative business models.</p>
+                    </div>
+                </div>
+
+                <div class="service-block" id="strategic-procurement">
+                    <div class="service-icon">🛒</div>
+                    <div class="service-text">
+                        <h2>Strategic Procurement</h2>
+                        <p>Transform your procurement from a cost center to a strategic value driver. We focus on optimizing your supply base, managing risk, and fostering supplier relationships to build a resilient and cost-effective supply chain.</p>
+                    </div>
+                </div>
+
+                <div class="service-block" id="esg">
+                    <div class="service-icon">🌿</div>
+                    <div class="service-text">
+                        <h2>ESG (Environmental, Social, Governance)</h2>
+                        <p>Integrate Environmental, Social, and Governance criteria into your core business strategy. We help you navigate regulatory requirements, enhance your corporate reputation, and create long-term sustainable value for all stakeholders.</p>
+                    </div>
+                </div>
+
+                <div class="service-block" id="quality-improvement">
+                    <div class="service-icon">⭐</div>
+                    <div class="service-text">
+                        <h2>Quality Improvement</h2>
+                        <p>Embed a culture of continuous improvement and excellence. Using proven methodologies like TQM and Six Sigma, we help you reduce defects, enhance customer satisfaction, and ensure your products and services consistently meet the highest standards.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+    </main>
+    <section class="connect-section">
+        <div class="connect-container">
+            <div class="connect-main">
+                <h2>Connect with Canpisce Consulting</h2>
+                <a class="connect-button" id="open-modal-btn">Contact</a>
+            </div>
+            <div class="connect-socials">
+                <a href="https://www.linkedin.com/company/canpisce-consulting-private-limited/about/" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11H9.3v9.26h3.2v-4.67c0-.9.6-1.63 1.63-1.63 1.03 0 1.63.73 1.63 1.63v4.67zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-9.26H5.5v9.26z"></path></svg>
+                    LinkedIn
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.67.88-.53 1.56-1.37 1.88-2.38-.83.49-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.27 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.48.75 2.79 1.9 3.55-.7-.02-1.36-.21-1.94-.54v.05c0 2.07 1.47 3.8 3.42 4.19-.36.1-.74.15-1.12.15-.28 0-.54-.03-.8-.08.54 1.7 2.12 2.93 4 2.97-1.45 1.14-3.28 1.82-5.26 1.82-.34 0-.68-.02-1.01-.06 1.89 1.21 4.12 1.92 6.56 1.92 7.88 0 12.2-6.52 12.2-12.2 0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.22z"></path></svg>
+                    Twitter
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"></path></svg>
+                    Facebook
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            
+            <div class="footer-left">
+                <div class="footer-col">
+                    <img src="logo-icon.png" alt="Canpisce Icon" class="footer-logo-img">
+                    <p>Think EXCELLENCE, think CANPISCE.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/canpisce-consulting-private-limited/about/" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3C1.9 3 1 3.9 1 5v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 18H5V8h3v10zM6.5 6.5c-.83 0-1.5-.67-1.5-1.5S5.67 3.5 6.5 3.5s1.5.67 1.5 1.5S7.33 6.5 6.5 6.5zM19 18h-3v-5.4c0-1.3-.03-2.97-1.8-2.97-1.8 0-2.08 1.4-2.08 2.87V18h-3V8h2.88v1.34h.04c.42-.79 1.44-1.63 2.84-1.63 3.03 0 3.59 1.99 3.59 4.58V18z"></d:path></svg></a>
+                    </div>
+                    <br>
+                    <form class="footer-subscribe">
+                        <input type="email" placeholder="Your e-mail">
+                        <button type="submit">→</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-col">
+                    <a href="about.html#consulting-process"><h3>Universe of Canpisce</h3></a>
+                    <ul class="footer-links">
+                        <li><a href="#">Diagnostics</a></li>
+                        <li><a href="#">High-Level Solution Formulation</a></li>
+                        <li><a href="#">Implementation and Integration</a></li>
+                        <li><a href="#">Hand-holding</a></li>
+                        <li><a href="#">Reviewing and Auditing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
+                            <a href="mailto:admin@canpisceconsulting.com">admin@canpisceconsulting.com</a>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+                            <a href="tel:+919354887071">+91 93548 87071</a>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
+                            <div>
+                                <strong>Regional Office-</strong> 
+                                <a href="http://googleusercontent.com/maps/google.com/0" target="_blank" rel="noopener noreferrer">
+                                    D-105, Varun Marg, Block D, Defence Colony, New Delhi, Delhi 110024
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="copyright">Copyright© 2025. Canpisce Consulting Pvt. Ltd. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="contact-modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" id="modal-close-btn">×</button>
+            
+            <div class="message-form-container" id="message-form-modal">
+                <h2>Message us</h2>
+                <p>We'll get back to you within 24 hours.</p>
+                <form action="#" method="POST">
+                    <div class="form-grid-2col">
+                        <div class="form-group">
+                            <label for="first-name-modal">First name *</label>
+                            <input type="text" id="first-name-modal" name="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name-modal">Last name *</label>
+                            <input type="text" id="last-name-modal" name="last-name" required>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="email-modal">Email *</label>
+                            <input type="email" id="email-modal" name="email" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="phone-modal">Phone number</label>
+                            <input type="tel" id="phone-modal" name="phone" placeholder="+91 (555) 000-0000">
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="organisation-modal">Organisation *</label>
+                            <input type="text" id="organisation-modal" name="organisation" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label>Enquiry Type *</label>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="enquiry-diagnosis-modal" name="enquiry" value="diagnosis">
+                                    <label for="enquiry-diagnosis-modal">Diagnosis</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="enquiry-pre-assessment-modal" name="enquiry" value="pre-assessment">
+                                    <label for="enquiry-pre-assessment-modal">Pre-Assessment</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="enquiry-consultation-modal" name="enquiry" value="consultation">
+                                    <label for="enquiry-consultation-modal">Consultation</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="enquiry-general-modal" name="enquiry" value="general">
+                                    <label for="enquiry-general-modal">General Enquiry</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="enquiry-other-modal" name="enquiry" value="other">
+                                    <label for="enquiry-other-modal">Others</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width hidden-field" id="other-field-container-modal">
+                            <label for="other-text-modal">If 'Others' is selected, please specify *</label>
+                            <input type="text" id="other-text-modal" name="other-text">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="query-description-modal">Query Description *</label>
+                            <textarea id="query-description-modal" name="query-description" placeholder="Please Describe your Query in brief." required></textarea>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <button type="submit" class="submit-button">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                
+                // --- Modal Pop-up Logic ---
+                const modalOverlay = document.getElementById('contact-modal-overlay');
+                const openModalBtn = document.getElementById('open-modal-btn');
+                const closeModalBtn = document.getElementById('modal-close-btn');
+
+                if (openModalBtn) {
+                    openModalBtn.addEventListener('click', function() {
+                        modalOverlay.style.display = 'flex';
+                    });
+                }
+
+                if (closeModalBtn) {
+                    closeModalBtn.addEventListener('click', function() {
+                        modalOverlay.style.display = 'none';
+                    });
+                }
+
+                if (modalOverlay) {
+                    modalOverlay.addEventListener('click', function(event) {
+                        if (event.target === modalOverlay) {
+                            modalOverlay.style.display = 'none';
+                        }
+                    });
+                }
+
+                // --- Modal "Others" Checkbox Logic ---
+                const otherCheckboxModal = document.getElementById('enquiry-other-modal');
+                const otherFieldContainerModal = document.getElementById('other-field-container-modal');
+                const otherTextInputModal = document.getElementById('other-text-modal');
+
+                if (otherCheckboxModal) {
+                    otherCheckboxModal.addEventListener('change', function() {
+                        if (otherCheckboxModal.checked) {
+                            otherFieldContainerModal.classList.remove('hidden-field');
+                            otherTextInputModal.required = true;
+                        } else {
+                            otherFieldContainerModal.classList.add('hidden-field');
+                            otherTextInputModal.required = false;
+                        }
+                    });
+                }
+
+            });
+        </script>
+
+    </body>
+    </html>
